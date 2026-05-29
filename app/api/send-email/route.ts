@@ -1,9 +1,8 @@
 import { NextRequest } from 'next/server'
-import { Resend } from 'resend'
+import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY)
     const body = await request.json()
     const { nombre, telefono, servicio, fecha, hora, notas } = body as {
       nombre: string
@@ -18,8 +17,16 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: 'Campos requeridos faltantes' }, { status: 400 })
     }
 
-    await resend.emails.send({
-      from: 'NUDO Salón de Belleza <onboarding@resend.dev>',
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    })
+
+    await transporter.sendMail({
+      from: `"NUDO Salón de Belleza" <${process.env.EMAIL_USER}>`,
       to: 'franco.landac@gmail.com',
       subject: `Nueva cita — ${nombre} · ${servicio}`,
       html: buildEmailHtml({ nombre, telefono, servicio, fecha, hora, notas }),
