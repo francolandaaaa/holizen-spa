@@ -35,13 +35,14 @@ export default function ThreeCanvas() {
           speed={0.25}
         />
 
-        <ambientLight intensity={0.22} />
-        <directionalLight position={[4, 8, 4]} intensity={2.5} color="#FFFFFF" />
-        <pointLight position={[-4, 3, -3]} intensity={7} color="#C9A84C" />
-        <pointLight position={[5, -3, 4]} intensity={1.5} color="#7090C0" />
+        <ambientLight intensity={0.55} />
+        <directionalLight position={[4, 8, 4]} intensity={4.5} color="#FFFFFF" />
+        <directionalLight position={[-4, 4, 2]} intensity={2.0} color="#FFFFFF" />
+        <pointLight position={[-4, 3, -3]} intensity={12} color="#C9A84C" />
+        <pointLight position={[5, -3, 4]} intensity={3.5} color="#8AAACC" />
         <spotLight
           position={[0, 10, 1]}
-          intensity={9}
+          intensity={14}
           color="#FFFFFF"
           angle={0.35}
           penumbra={0.6}
