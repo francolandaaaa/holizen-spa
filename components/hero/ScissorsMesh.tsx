@@ -129,7 +129,9 @@ export default function ScissorsMesh() {
     const t      = state.clock.elapsedTime
     const scroll = typeof window !== 'undefined' ? window.scrollY : 0
 
-    const angle = 0.26 + Math.sin(t * 1.05) * 0.22
+    // Max 0.31 rad (~18° c/brazo, 36° total) = abiertas como ref DOS47
+    // Min 0.05 rad (~3° c/brazo)            = cerradas como ref Kokoro
+    const angle = 0.18 + Math.sin(t * 0.9) * 0.13
     arm1Ref.current.rotation.z =  angle
     arm2Ref.current.rotation.z = -angle
 
