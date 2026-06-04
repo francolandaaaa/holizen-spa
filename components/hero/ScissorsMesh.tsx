@@ -6,10 +6,10 @@
  * RING NON-CROSSING PROOF
  * ──────────────────────
  * Each arm carries its ring at lateral offset ±RING_X from the arm axis.
- * At minimum closing angle θ_min = 0.05 rad, ring centres are separated by:
- *   d_2D = 2·(RING_X·cosθ + RING_Y·sinθ) ≈ 2·(0.24·0.9988 + 0.73·0.050) = 0.553
+ * At minimum closing angle θ_min = 0.03 rad, ring centres are separated by:
+ *   d_2D = 2·(RING_X·cosθ + RING_Y·sinθ) ≈ 2·(0.26·0.9996 + 0.68·0.030) = 0.560
  * Sum of outer torus radii = (0.206+0.033)+(0.218+0.033) = 0.490
- * 0.553 > 0.490  →  rings NEVER cross at any point in the animation.
+ * 0.560 > 0.490  →  rings NEVER cross. Gap = 0.070 → nearly touching when closed.
  *
  * SEAMLESS BLADE–HANDLE CONNECTION
  * ─────────────────────────────────
@@ -34,17 +34,14 @@ const GOLD  = { metalness: 0.92, roughness: 0.08, color: '#C9A84C' } as const
 // ── Geometry constants ────────────────────────────────────────────────────────
 const BASE_R   = 0.040  // shared radius at pivot for seamless blade↔handle join
 const BLADE_H  = 1.36   // blade length (pivot → tip)
-const RING_X   = 0.24   // lateral offset ensuring rings never cross
-const RING_Y   = 0.73   // distance from pivot to ring centre along arm axis
+const RING_X   = 0.26   // lateral offset — more horizontal strut angle
+const RING_Y   = 0.68   // shorter vertical → handles look more lateral
 
 // Handle strut: straight rod from (0,0) to (±RING_X, -RING_Y)
-// Length and pivot-relative rotation computed analytically:
-//   axis = (−sinθ, cosθ) must be anti-parallel to (RING_X, −RING_Y)
-//   → θ = atan2(RING_X, RING_Y)
-const STRUT_LEN = Math.sqrt(RING_X ** 2 + RING_Y ** 2) // ≈ 0.769
-const STRUT_ROT = Math.atan2(RING_X, RING_Y)           // ≈ 0.314 rad
-const STRUT_CX  = RING_X / 2   // cx of strut centre = 0.12
-const STRUT_CY  = -RING_Y / 2  // cy of strut centre = -0.365
+const STRUT_LEN = Math.sqrt(RING_X ** 2 + RING_Y ** 2) // ≈ 0.728
+const STRUT_ROT = Math.atan2(RING_X, RING_Y)           // ≈ 0.365 rad
+const STRUT_CX  = RING_X / 2   // = 0.13
+const STRUT_CY  = -RING_Y / 2  // = -0.34
 
 // ── One complete arm ──────────────────────────────────────────────────────────
 function ScissorsArm({ thumb = false }: { thumb?: boolean }) {
@@ -128,8 +125,8 @@ export default function ScissorsMesh() {
     const scroll = typeof window !== 'undefined' ? window.scrollY : 0
 
     // Open  = 0.31 rad (≈18° per arm, 36° total) — matches DOS47 reference
-    // Closed = 0.05 rad (≈3° per arm)            — matches Kokoro reference
-    const angle = 0.18 + Math.sin(t * 0.9) * 0.13
+    // Closed = 0.03 rad — handles nearly touch laterally, rings gap = 0.07
+    const angle = 0.17 + Math.sin(t * 0.9) * 0.14
     arm1Ref.current.rotation.z =  angle
     arm2Ref.current.rotation.z = -angle
 
