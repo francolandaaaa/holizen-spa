@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import BookingForm from './BookingForm'
+import CalendarBooking from './CalendarBooking'
 
 const glass = {
   background: 'rgba(255,255,255,0.03)',
@@ -62,7 +62,7 @@ export default function BookingSection() {
           className="p-8 md:p-12"
           style={glass}
         >
-          <BookingForm />
+          <CalendarBooking />
         </motion.div>
       </div>
     </section>
