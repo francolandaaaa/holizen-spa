@@ -52,7 +52,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="hidden md:flex gap-9 text-xs tracking-widest"
+          className="hidden md:flex gap-9 text-sm tracking-widest"
         >
           {NAV_LINKS.map(link => (
             <a
@@ -75,7 +75,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, letterSpacing: '0.7em' }}
           animate={{ opacity: 0.85, letterSpacing: '0.38em' }}
           transition={{ duration: 2.4, delay: 0.1 }}
-          className="text-xs uppercase mb-6"
+          className="text-sm uppercase mb-6"
           style={{ color: '#C9A84C' }}
         >
           Experiencia Premium
@@ -131,7 +131,7 @@ export default function HeroSection() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease, delay: 1.2 }}
-          className="pointer-events-auto text-xs tracking-[0.3em] uppercase px-10 py-4 transition-all duration-500"
+          className="pointer-events-auto text-sm tracking-[0.3em] uppercase px-10 py-4 transition-all duration-500"
           style={{
             border: '1px solid rgba(201,168,76,0.80)',
             color: '#C9A84C',
@@ -163,7 +163,7 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
         <span
-          className="text-[10px] tracking-[0.3em] uppercase"
+          className="text-xs tracking-[0.3em] uppercase"
           style={{ color: 'rgba(255,255,255,0.22)' }}
         >
           Scroll

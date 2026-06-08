@@ -22,12 +22,12 @@ export default function Footer() {
               NUDO
             </h3>
             <p
-              className="text-xs tracking-widest uppercase mb-5"
+              className="text-sm tracking-widest uppercase mb-5"
               style={{ color: 'rgba(255,255,255,0.25)' }}
             >
               Salón de Belleza
             </p>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            <p className="text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)' }}>
               Experiencia premium de belleza y estilo en un ambiente de lujo y elegancia.
             </p>
           </div>
@@ -35,12 +35,12 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4
-              className="text-xs tracking-widest uppercase mb-6"
+              className="text-sm tracking-widest uppercase mb-6"
               style={{ color: 'rgba(201,168,76,0.65)' }}
             >
               Contacto
             </h4>
-            <ul className="space-y-3 text-sm" style={{ color: 'rgba(255,255,255,0.38)' }}>
+            <ul className="space-y-3 text-base" style={{ color: 'rgba(255,255,255,0.38)' }}>
               <li>
                 <a
                   href="mailto:franco.landac@gmail.com"
@@ -68,12 +68,12 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4
-              className="text-xs tracking-widest uppercase mb-6"
+              className="text-sm tracking-widest uppercase mb-6"
               style={{ color: 'rgba(201,168,76,0.65)' }}
             >
               Navegación
             </h4>
-            <ul className="space-y-3 text-sm" style={{ color: 'rgba(255,255,255,0.38)' }}>
+            <ul className="space-y-3 text-base" style={{ color: 'rgba(255,255,255,0.38)' }}>
               {[
                 { label: 'Servicios', href: '#servicios' },
                 { label: 'Galería', href: '#galeria' },
@@ -99,7 +99,7 @@ export default function Footer() {
           className="pt-8 flex flex-col md:flex-row justify-between items-center gap-5"
           style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
         >
-          <p className="text-xs tracking-wider" style={{ color: 'rgba(255,255,255,0.18)' }}>
+          <p className="text-sm tracking-wider" style={{ color: 'rgba(255,255,255,0.18)' }}>
             © {year} NUDO Salón de Belleza. Todos los derechos reservados.
           </p>
           <div className="flex gap-7">
@@ -107,7 +107,7 @@ export default function Footer() {
               <a
                 key={social}
                 href="#"
-                className="text-xs tracking-wider transition-colors duration-300"
+                className="text-sm tracking-wider transition-colors duration-300"
                 style={{ color: 'rgba(255,255,255,0.22)' }}
                 onMouseEnter={e => { e.currentTarget.style.color = '#C9A84C' }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.22)' }}

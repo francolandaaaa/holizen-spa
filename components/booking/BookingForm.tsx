@@ -42,14 +42,14 @@ const inputStyle: React.CSSProperties = {
   borderRight: 'none',
   padding: '10px 0',
   color: '#F5F5F5',
-  fontSize: '14px',
+  fontSize: '16px',
   outline: 'none',
 }
 
 const labelStyle: React.CSSProperties = {
   display: 'block',
   color: 'rgba(255,255,255,0.38)',
-  fontSize: '10px',
+  fontSize: '12px',
   letterSpacing: '0.3em',
   textTransform: 'uppercase',
   marginBottom: '8px',
@@ -145,7 +145,7 @@ export default function BookingForm() {
           >
             Cita enviada
           </h3>
-          <p className="text-sm leading-relaxed max-w-xs mx-auto" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="text-base leading-relaxed max-w-xs mx-auto" style={{ color: 'rgba(255,255,255,0.45)' }}>
             Tu cita ha sido enviada. Nos pondremos en contacto contigo pronto.
           </p>
         </motion.div>
@@ -273,7 +273,7 @@ export default function BookingForm() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="md:col-span-2 text-center text-xs"
+              className="md:col-span-2 text-center text-sm"
               style={{ color: 'rgba(255,100,100,0.7)' }}
             >
               Hubo un error al enviar tu cita. Por favor intenta de nuevo.
@@ -284,7 +284,7 @@ export default function BookingForm() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="relative overflow-hidden text-xs tracking-[0.3em] uppercase px-12 py-4 transition-colors duration-500 group"
+              className="relative overflow-hidden text-sm tracking-[0.3em] uppercase px-12 py-4 transition-colors duration-500 group"
               style={{ border: '1px solid #C9A84C', color: '#C9A84C' }}
               onMouseEnter={e => {
                 const el = e.currentTarget

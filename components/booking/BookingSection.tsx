@@ -27,7 +27,7 @@ export default function BookingSection() {
           className="mb-16 text-center"
         >
           <p
-            className="text-xs tracking-[0.35em] uppercase mb-4"
+            className="text-sm tracking-[0.35em] uppercase mb-4"
             style={{ color: '#C9A84C' }}
           >
             Reserva tu lugar
@@ -46,7 +46,7 @@ export default function BookingSection() {
           </h2>
           <div className="w-14 h-px mx-auto mt-6 mb-6" style={{ background: '#C9A84C' }} />
           <p
-            className="text-sm max-w-sm mx-auto leading-relaxed"
+            className="text-base max-w-sm mx-auto leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.35)' }}
           >
             Completa el formulario y nos pondremos en contacto contigo para confirmar tu cita.

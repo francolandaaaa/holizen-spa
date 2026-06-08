@@ -57,12 +57,12 @@ function GalleryCard({ image }: { image: GalleryImage }) {
         style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.1) 60%, transparent 100%)' }}
       >
         <span
-          className="text-xs tracking-widest uppercase mb-1"
+          className="text-sm tracking-widest uppercase mb-1"
           style={{ color: '#C9A84C' }}
         >
           {image.category}
         </span>
-        <p className="text-white text-sm font-light">{image.alt}</p>
+        <p className="text-white text-base font-light">{image.alt}</p>
       </div>
     </motion.div>
   )
@@ -86,7 +86,7 @@ export default function GallerySection() {
           className="mb-16 text-center"
         >
           <p
-            className="text-xs tracking-[0.35em] uppercase mb-4"
+            className="text-sm tracking-[0.35em] uppercase mb-4"
             style={{ color: '#C9A84C' }}
           >
             Nuestro trabajo
@@ -112,7 +112,7 @@ export default function GallerySection() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className="px-6 py-2 text-xs tracking-widest uppercase transition-all duration-350"
+              className="px-6 py-2 text-sm tracking-widest uppercase transition-all duration-350"
               style={
                 active === cat
                   ? { background: '#C9A84C', color: '#050505' }
@@ -150,7 +150,7 @@ export default function GallerySection() {
         </motion.div>
 
         <p
-          className="text-center text-xs mt-10 tracking-wider"
+          className="text-center text-sm mt-10 tracking-wider"
           style={{ color: 'rgba(255,255,255,0.15)' }}
         >
           Añade tus fotos en /public/gallery/ y edita components/gallery/galleryData.ts

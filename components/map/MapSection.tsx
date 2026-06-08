@@ -11,7 +11,7 @@ export default function MapSection() {
         {/* Heading */}
         <div className="mb-14 text-center">
           <p
-            className="text-xs tracking-[0.35em] uppercase mb-4"
+            className="text-sm tracking-[0.35em] uppercase mb-4"
             style={{ color: '#C9A84C' }}
           >
             Encuéntranos
@@ -71,7 +71,7 @@ export default function MapSection() {
                 flexShrink: 0,
               }}
             />
-            <p className="text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-base" style={{ color: 'rgba(255,255,255,0.5)' }}>
               NUDO Salón de Belleza — Tu ciudad, México
             </p>
           </div>
@@ -79,7 +79,7 @@ export default function MapSection() {
             href="https://maps.google.com/maps?q=NUDO+Sal%C3%B3n+de+Belleza"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs tracking-[0.2em] uppercase transition-colors duration-300"
+            className="text-sm tracking-[0.2em] uppercase transition-colors duration-300"
             style={{ color: 'rgba(201,168,76,0.7)' }}
             onMouseEnter={e => { e.currentTarget.style.color = '#C9A84C' }}
             onMouseLeave={e => { e.currentTarget.style.color = 'rgba(201,168,76,0.7)' }}

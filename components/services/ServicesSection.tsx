@@ -81,7 +81,7 @@ export default function ServicesSection() {
         {/* Heading */}
         <div ref={headRef} className="mb-20 text-center">
           <p
-            className="text-xs tracking-[0.35em] uppercase mb-4"
+            className="text-sm tracking-[0.35em] uppercase mb-4"
             style={{ color: '#C9A84C' }}
           >
             Lo que ofrecemos
@@ -179,7 +179,7 @@ export default function ServicesSection() {
 
                   <span
                     style={{
-                      fontSize: '11px',
+                      fontSize: '14px',
                       letterSpacing: '0.14em',
                       color: 'rgba(201,168,76,0.6)',
                       textAlign: 'center',
@@ -191,7 +191,7 @@ export default function ServicesSection() {
                   {/* Hover hint */}
                   <span
                     style={{
-                      fontSize: '9px',
+                      fontSize: '11px',
                       letterSpacing: '0.2em',
                       color: 'rgba(255,255,255,0.18)',
                       textTransform: 'uppercase',
@@ -262,7 +262,7 @@ export default function ServicesSection() {
                     </h3>
                     <p
                       style={{
-                        fontSize: '12px',
+                        fontSize: '15px',
                         lineHeight: 1.65,
                         color: 'rgba(255,255,255,0.55)',
                         maxWidth: '320px',
@@ -273,7 +273,7 @@ export default function ServicesSection() {
                     <div
                       style={{
                         marginTop: '1rem',
-                        fontSize: '10px',
+                        fontSize: '12px',
                         letterSpacing: '0.18em',
                         color: 'rgba(201,168,76,0.7)',
                         textTransform: 'uppercase',
