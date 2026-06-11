@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 
-// ThreeCanvas is now rendered in app/page.tsx outside the IntroReveal wrapper.
-// HeroSection only contains the text content layer on top of the fixed canvas.
+// ThreeCanvas is rendered in app/page.tsx outside the IntroReveal wrapper.
+// HeroSection only contains the text + nav layer.
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -16,7 +16,7 @@ const NAV_LINKS = [
 export default function HeroSection() {
   return (
     <section id="inicio" className="relative h-screen overflow-hidden" style={{ background: 'transparent' }}>
-      {/* Radial vignette — subtle, lets lotus show through */}
+      {/* Radial vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -24,18 +24,19 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Bottom fade to next section */}
+      {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none"
         style={{ background: 'linear-gradient(to bottom, transparent, #0D0A06)' }}
       />
 
-      {/* Floating Nav */}
+      {/* Nav
+          Delays start at 1.5s so animations play as IntroReveal fades the page in */}
       <nav className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 md:px-14 py-7">
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
+          transition={{ duration: 1.2, delay: 1.5 }}
           style={{
             fontFamily: 'var(--font-cinzel)',
             fontSize: '15px',
@@ -50,7 +51,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
+          transition={{ duration: 1.2, delay: 1.8 }}
           className="hidden md:flex gap-10"
         >
           {NAV_LINKS.map(link => (
@@ -70,10 +71,12 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none px-6 text-center">
+
+        {/* Eyebrow — same letter-spacing animation as before, timed to reveal */}
         <motion.p
-          initial={{ opacity: 0, letterSpacing: '0.8em' }}
-          animate={{ opacity: 0.80, letterSpacing: '0.40em' }}
-          transition={{ duration: 2.6, delay: 0.1 }}
+          initial={{ opacity: 0, letterSpacing: '0.7em' }}
+          animate={{ opacity: 0.80, letterSpacing: '0.38em' }}
+          transition={{ duration: 2.4, delay: 1.5 }}
           style={{
             fontFamily: 'var(--font-cormorant)',
             fontSize: 'clamp(11px, 1.2vw, 14px)',
@@ -85,10 +88,11 @@ export default function HeroSection() {
           Bienestar · Armonía · Serenidad
         </motion.p>
 
+        {/* Main title */}
         <motion.h1
-          initial={{ y: 55, opacity: 0 }}
+          initial={{ y: 60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.6, ease, delay: 0.4 }}
+          transition={{ duration: 1.4, ease, delay: 1.7 }}
           style={{
             fontFamily: 'var(--font-cinzel)',
             fontSize: 'clamp(48px, 9.5vw, 120px)',
@@ -108,9 +112,9 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          initial={{ y: 24, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2, ease, delay: 0.75 }}
+          transition={{ duration: 1.1, ease, delay: 2.0 }}
           style={{
             fontFamily: 'var(--font-cinzel)',
             fontSize: 'clamp(16px, 2.8vw, 36px)',
@@ -126,7 +130,7 @@ export default function HeroSection() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1.1 }}
+          transition={{ duration: 1.0, delay: 2.3 }}
           style={{
             fontFamily: 'var(--font-cormorant)',
             fontSize: 'clamp(14px, 1.5vw, 18px)',
@@ -145,8 +149,8 @@ export default function HeroSection() {
           href="#agendar"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.9, ease, delay: 1.3 }}
-          className="pointer-events-auto text-xs tracking-[0.35em] uppercase px-12 py-4 transition-all duration-500"
+          transition={{ duration: 0.8, ease, delay: 2.6 }}
+          className="pointer-events-auto tracking-[0.35em] uppercase px-12 py-4 transition-all duration-500"
           style={{
             fontFamily: 'var(--font-cormorant)',
             fontSize: '13px',
@@ -177,7 +181,7 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.0, duration: 1.2 }}
+        transition={{ delay: 3.2, duration: 1.2 }}
         className="absolute bottom-9 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
         <span
