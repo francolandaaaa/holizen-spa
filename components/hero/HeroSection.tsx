@@ -1,12 +1,9 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 
-const ThreeCanvas = dynamic(() => import('./ThreeCanvas'), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0" style={{ background: '#0D0A06' }} />,
-})
+// ThreeCanvas is now rendered in app/page.tsx outside the IntroReveal wrapper.
+// HeroSection only contains the text content layer on top of the fixed canvas.
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -19,16 +16,11 @@ const NAV_LINKS = [
 export default function HeroSection() {
   return (
     <section id="inicio" className="relative h-screen overflow-hidden" style={{ background: 'transparent' }}>
-      {/* 3D Canvas */}
-      <div className="absolute inset-0">
-        <ThreeCanvas />
-      </div>
-
-      {/* Radial vignette */}
+      {/* Radial vignette — subtle, lets lotus show through */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 38%, transparent 18%, rgba(13,10,6,0.58) 100%)',
+          background: 'radial-gradient(ellipse at 50% 38%, transparent 18%, rgba(13,10,6,0.55) 100%)',
         }}
       />
 
@@ -59,7 +51,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="hidden md:flex gap-10 text-xs tracking-widest"
+          className="hidden md:flex gap-10"
         >
           {NAV_LINKS.map(link => (
             <a
@@ -78,7 +70,6 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none px-6 text-center">
-        {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, letterSpacing: '0.8em' }}
           animate={{ opacity: 0.80, letterSpacing: '0.40em' }}
@@ -94,7 +85,6 @@ export default function HeroSection() {
           Bienestar · Armonía · Serenidad
         </motion.p>
 
-        {/* Brand name */}
         <motion.h1
           initial={{ y: 55, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
