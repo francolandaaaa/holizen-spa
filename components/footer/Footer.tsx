@@ -9,7 +9,7 @@ export default function Footer() {
     <footer
       className="px-6 md:px-12 lg:px-24 py-16"
       style={{
-        background: '#080502',
+        background: 'transparent',
         borderTop: '1px solid rgba(201,168,76,0.10)',
       }}
     >

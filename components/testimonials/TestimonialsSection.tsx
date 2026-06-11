@@ -55,7 +55,7 @@ export default function TestimonialsSection() {
     <section
       id="resenas"
       className="py-28 px-6 md:px-12 lg:px-24"
-      style={{ background: '#0F0C08' }}
+      style={{ background: 'transparent' }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
