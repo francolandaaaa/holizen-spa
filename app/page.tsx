@@ -1,6 +1,7 @@
 import HeroSection from '@/components/hero/HeroSection'
 import ServicesSection from '@/components/services/ServicesSection'
 import GallerySection from '@/components/gallery/GallerySection'
+import TestimonialsSection from '@/components/testimonials/TestimonialsSection'
 import BookingSection from '@/components/booking/BookingSection'
 import MapSection from '@/components/map/MapSection'
 import Footer from '@/components/footer/Footer'
@@ -10,11 +11,11 @@ import IntroReveal from '@/components/IntroReveal'
 export default function Home() {
   return (
     <IntroReveal>
-      {/* z-index: 1 keeps all page content above the fixed scissors canvas */}
       <main style={{ position: 'relative', zIndex: 1 }}>
         <HeroSection />
         <ServicesSection />
         <GallerySection />
+        <TestimonialsSection />
         <BookingSection />
         <MapSection />
         <Footer />

@@ -9,8 +9,10 @@ const MONTHS_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
 const DAYS_ABBR = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom']
 const DAYS_FULL = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
 const SERVICIOS = [
-  'Corte de Cabello','Tinte','Balayage','Mechas',
-  'Peinado','Tratamiento Capilar','Keratina','Otro',
+  'Masaje Relajante','Masaje Descontracturante','Masaje con Piedras Calientes','Masaje Aromaterapéutico',
+  'Facial Hidratante','Facial Rejuvenecedor','Limpieza Profunda',
+  'Ritual Luna','Ritual Equilibrio','Ritual Energía Vital',
+  'Experiencia en Pareja','Cuidado Corporal','Meditación Guiada','Otro',
 ]
 
 // ─── types ────────────────────────────────────────────────────────────────────
