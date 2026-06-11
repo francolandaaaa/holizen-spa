@@ -17,7 +17,7 @@ export default function BookingSection() {
     <section
       id="agendar"
       className="py-28 px-6 md:px-12 lg:px-24"
-      style={{ background: 'transparent' }}
+      style={{ background: 'rgba(12, 8, 4, 0.88)' }}
     >
       <div className="max-w-4xl mx-auto">
         {/* Heading */}

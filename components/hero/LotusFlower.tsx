@@ -216,11 +216,11 @@ export default function LotusFlower() {
       {/* Center stamens */}
       <LotusCenter />
 
-      {/* Lily pad — sunk to y=-0.50 local (≈-0.83 world units).
-          Outermost petal bases sit at y≈-0.03 local (≈-0.05 world),
-          so there is a 0.78-world-unit gap — pad never touches petals. */}
-      <mesh rotation={[-Math.PI / 2, 0.6, 0]} position={[0, -0.50, 0]}>
-        <circleGeometry args={[1.30, 48]} />
+      {/* Lily pad — sunk to y=-0.95 local (≈-1.57 world units).
+          Petals open to a max of y≈+0.22 local (+0.36 world), so the
+          pad is over 1.9 world units below the nearest petal — no contact. */}
+      <mesh rotation={[-Math.PI / 2, 0.6, 0]} position={[0, -0.95, 0]}>
+        <circleGeometry args={[1.00, 48]} />
         <meshPhysicalMaterial
           color="#375F3C"
           roughness={0.85}
