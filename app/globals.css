@@ -7,9 +7,9 @@
   --rose: #E8C5B8;
   --ivory: #FAF8F4;
   --sage: #8FA88A;
-  --bg-dark: #0D0A06;
+  --bg-dark: #0A1818;
   --bg-light: #FAF8F4;
-  --text-dark: #2A1F0E;
+  --text-dark: #0A1818;
 }
 
 @theme inline {
@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background: #0D0A06;
+  background: #0A1818;
   color: #F5EEE0;
   overflow-x: hidden;
 }

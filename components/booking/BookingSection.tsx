@@ -16,8 +16,8 @@ export default function BookingSection() {
   return (
     <section
       id="agendar"
-      className="py-28 px-6 md:px-12 lg:px-24"
-      style={{ background: 'rgba(12, 8, 4, 0.88)' }}
+      className="px-6 md:px-12 lg:px-24"
+      style={{ background: 'rgba(10, 24, 22, 0.88)', paddingTop: '5.6rem', paddingBottom: '5.6rem' }}
     >
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
@@ -61,8 +61,9 @@ export default function BookingSection() {
           </p>
         </motion.div>
 
-        {/* Form card */}
+        {/* Form card — id="booking-form" lets the hero CTA scroll here directly */}
         <motion.div
+          id="booking-form"
           initial={{ opacity: 0, y: 44 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

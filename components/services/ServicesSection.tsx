@@ -12,55 +12,41 @@ const SERVICES = [
     number: '01',
     icon: '◌',
     title: 'Masajes Terapéuticos',
-    description: 'Masajes especializados que liberan tensiones profundas y restauran el equilibrio natural del cuerpo. Desde el relajante clásico hasta la profunda terapia con piedras calientes.',
-    tags: 'Relajante · Descontracturante · Piedras Calientes · Aromaterapéutico',
+    description: 'Masajes especializados que liberan tensiones profundas y restauran el equilibrio natural del cuerpo. Desde el relajante clásico hasta la terapia con piedras calientes.',
+    tags: 'Relajante · Descontracturante · Piedras Calientes',
     accent: 'rgba(201,168,76,0.08)',
     borderColor: 'rgba(201,168,76,0.22)',
+    photo: '/gallery/masaje-aceites.jpg',
   },
   {
     number: '02',
     icon: '◎',
     title: 'Faciales Premium',
     description: 'Tratamientos de última generación para revelar una piel radiante. Hidratación profunda, rejuvenecimiento celular y limpieza purificadora con ingredientes naturales de lujo.',
-    tags: 'Hidratación Profunda · Rejuvenecimiento · Limpieza Profunda',
+    tags: 'Hidratación Profunda · Rejuvenecimiento · Limpieza',
     accent: 'rgba(232,197,184,0.10)',
     borderColor: 'rgba(232,197,184,0.28)',
+    photo: '/gallery/facial-hidratacion.jpg',
   },
   {
     number: '03',
     icon: '◉',
     title: 'Rituales Holísticos',
-    description: 'Ceremonias ancestrales que integran cuerpo, mente y espíritu en una experiencia transformadora. El Ritual Luna, el Ritual Equilibrio y el Ritual Energía Vital.',
-    tags: 'Ritual Luna · Ritual Equilibrio · Energía Vital',
+    description: 'Ceremonias que integran cuerpo, mente y espíritu en una experiencia transformadora. Ritual de barro, Ritual Pareja y experiencias de armonía total.',
+    tags: 'Ritual Barro · Ritual Pareja · Energía Vital',
     accent: 'rgba(143,168,138,0.10)',
     borderColor: 'rgba(143,168,138,0.28)',
+    photo: '/gallery/ritual-barro.jpg',
   },
   {
     number: '04',
     icon: '◈',
     title: 'Experiencias en Pareja',
-    description: 'Momentos únicos compartidos en cabina privada con té de cortesía, aromaterapia personalizada y una experiencia sensorial romántica diseñada para dos almas.',
-    tags: 'Cabina Privada · Aromaterapia · Experiencia Romántica',
+    description: 'Momentos únicos en cabina privada con té de cortesía, aromaterapia personalizada y una experiencia sensorial romántica diseñada para dos.',
+    tags: 'Cabina Privada · Aromaterapia · Romántico',
     accent: 'rgba(201,168,76,0.07)',
     borderColor: 'rgba(201,168,76,0.20)',
-  },
-  {
-    number: '05',
-    icon: '◇',
-    title: 'Wellness Integral',
-    description: 'Programas completos de bienestar que combinan meditación guiada, terapias de relajación profunda y experiencias sensoriales para una renovación total.',
-    tags: 'Meditación Guiada · Terapias · Experiencias Sensoriales',
-    accent: 'rgba(232,197,184,0.08)',
-    borderColor: 'rgba(232,197,184,0.22)',
-  },
-  {
-    number: '06',
-    icon: '◌',
-    title: 'Cuidado Corporal',
-    description: 'Exfoliaciones, envolturas corporales y tratamientos regeneradores que nutren profundamente la piel, dejándola suave, luminosa y revitalizada.',
-    tags: 'Exfoliación · Envolturas · Tratamientos Nutritivos',
-    accent: 'rgba(143,168,138,0.08)',
-    borderColor: 'rgba(143,168,138,0.22)',
+    photo: '/gallery/ritual-pareja.png',
   },
 ]
 
@@ -90,8 +76,8 @@ export default function ServicesSection() {
     <section
       id="servicios"
       ref={sectionRef}
-      className="py-28 px-6 md:px-12 lg:px-24"
-      style={{ background: 'rgba(12, 8, 4, 0.82)' }}
+      className="px-6 md:px-12 lg:px-24"
+      style={{ background: 'rgba(10, 24, 22, 0.88)', paddingTop: '5.6rem', paddingBottom: '5.6rem' }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
@@ -100,7 +86,7 @@ export default function ServicesSection() {
             className="text-sm uppercase mb-4"
             style={{ color: GOLD, letterSpacing: '0.38em', fontFamily: 'var(--font-cormorant)' }}
           >
-            Experiencias de Bienestar
+            Lo Más Solicitado
           </p>
           <h2
             className="font-light"
@@ -113,7 +99,7 @@ export default function ServicesSection() {
               backgroundClip: 'text',
             }}
           >
-            Nuestros Servicios
+            Nuestros Favoritos
           </h2>
           <div className="w-14 h-px mx-auto mt-6" style={{ background: GOLD }} />
           <p
@@ -130,7 +116,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Flip Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {SERVICES.map((svc, i) => (
             <motion.div
               key={svc.number}
@@ -155,12 +141,11 @@ export default function ServicesSection() {
                 {/* Front face */}
                 <div
                   style={{
-                    ...glassStyle,
                     position: 'absolute', inset: 0,
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
                     border: `1px solid ${svc.borderColor}`,
-                    background: svc.accent,
+                    overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -169,19 +154,38 @@ export default function ServicesSection() {
                     gap: '0.3rem',
                   }}
                 >
-                  <span style={{ fontSize: '1.8rem', color: 'rgba(201,168,76,0.35)', marginBottom: '0.3rem' }}>
+                  {/* Photo background */}
+                  <img
+                    src={svc.photo}
+                    alt={svc.title}
+                    style={{
+                      position: 'absolute', inset: 0,
+                      width: '100%', height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.7s ease',
+                    }}
+                  />
+                  {/* Dark overlay */}
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(to bottom, rgba(10,24,22,0.62) 0%, rgba(10,24,22,0.80) 100%)',
+                  }} />
+                  {/* Content */}
+                  <span style={{ position: 'relative', fontSize: '1.8rem', color: 'rgba(201,168,76,0.70)', marginBottom: '0.3rem' }}>
                     {svc.icon}
                   </span>
                   <span style={{
+                    position: 'relative',
                     fontFamily: 'var(--font-cormorant)',
                     fontSize: '2.8rem',
                     fontWeight: 300,
                     lineHeight: 1,
-                    color: 'rgba(201,168,76,0.18)',
+                    color: 'rgba(201,168,76,0.30)',
                   }}>
                     {svc.number}
                   </span>
                   <h3 style={{
+                    position: 'relative',
                     fontFamily: 'var(--font-cormorant)',
                     fontSize: 'clamp(1.4rem, 2.4vw, 1.85rem)',
                     fontWeight: 300,
@@ -192,11 +196,12 @@ export default function ServicesSection() {
                   }}>
                     {svc.title}
                   </h3>
-                  <div style={{ width: '36px', height: '1px', background: 'rgba(201,168,76,0.48)', margin: '0.8rem 0' }} />
+                  <div style={{ position: 'relative', width: '36px', height: '1px', background: 'rgba(201,168,76,0.55)', margin: '0.8rem 0' }} />
                   <span style={{
+                    position: 'relative',
                     fontSize: '12px',
                     letterSpacing: '0.12em',
-                    color: 'rgba(201,168,76,0.55)',
+                    color: 'rgba(201,168,76,0.75)',
                     textAlign: 'center',
                     lineHeight: 1.6,
                     fontFamily: 'var(--font-cormorant)',
@@ -204,9 +209,10 @@ export default function ServicesSection() {
                     {svc.tags.split(' · ')[0]} · {svc.tags.split(' · ')[1]}
                   </span>
                   <span style={{
+                    position: 'relative',
                     fontSize: '11px',
                     letterSpacing: '0.22em',
-                    color: 'rgba(245,238,224,0.16)',
+                    color: 'rgba(245,238,224,0.35)',
                     textTransform: 'uppercase',
                     marginTop: '1.1rem',
                     fontFamily: 'var(--font-cormorant)',

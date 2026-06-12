@@ -7,22 +7,31 @@ export default function Footer() {
 
   return (
     <footer
-      className="px-6 md:px-12 lg:px-24 py-16"
+      className="px-6 md:px-12 lg:px-24"
       style={{
-        background: 'rgba(12, 8, 4, 0.85)',
+        background: 'rgba(10, 24, 22, 0.92)',
         borderTop: '1px solid rgba(201,168,76,0.10)',
+        paddingTop: '3.2rem',
+        paddingBottom: '3.2rem',
       }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
           {/* Brand */}
           <div>
-            <h3
-              className="font-light mb-1 tracking-[0.35em]"
-              style={{ fontFamily: 'var(--font-cinzel)', fontSize: '1.5rem', color: GOLD, fontWeight: 400 }}
-            >
-              HOLIZEN SPA
-            </h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+              <img
+                src="/logo-holizen.png"
+                alt="Holizen Spa"
+                style={{ width: '36px', height: '36px', objectFit: 'contain', filter: 'invert(1) sepia(1) saturate(2) hue-rotate(10deg) brightness(0.85)' }}
+              />
+              <h3
+                className="font-light tracking-[0.35em]"
+                style={{ fontFamily: 'var(--font-cinzel)', fontSize: '1.5rem', color: GOLD, fontWeight: 400 }}
+              >
+                HOLIZEN SPA
+              </h3>
+            </div>
             <p
               className="text-xs tracking-widest uppercase mb-5"
               style={{ color: 'rgba(245,238,224,0.22)', fontFamily: 'var(--font-cormorant)', letterSpacing: '0.28em' }}

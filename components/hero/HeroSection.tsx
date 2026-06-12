@@ -27,26 +27,33 @@ export default function HeroSection() {
       {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #0D0A06)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, #0A1818)' }}
       />
 
       {/* Nav
           Delays start at 1.5s so animations play as IntroReveal fades the page in */}
       <nav className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 md:px-14 py-7">
-        <motion.span
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.5 }}
-          style={{
+          style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+        >
+          <img
+            src="/logo-holizen.png"
+            alt="Holizen Spa"
+            style={{ width: '38px', height: '38px', objectFit: 'contain', filter: 'invert(1) sepia(1) saturate(2) hue-rotate(10deg) brightness(0.85)' }}
+          />
+          <span style={{
             fontFamily: 'var(--font-cinzel)',
             fontSize: '15px',
             letterSpacing: '0.35em',
             color: '#C9A84C',
             fontWeight: 400,
-          }}
-        >
-          HOLIZEN SPA
-        </motion.span>
+          }}>
+            HOLIZEN SPA
+          </span>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -146,7 +153,7 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.a
-          href="#agendar"
+          href="#booking-form"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease, delay: 2.6 }}
@@ -162,7 +169,7 @@ export default function HeroSection() {
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = '#C9A84C'
-            e.currentTarget.style.color = '#0D0A06'
+            e.currentTarget.style.color = '#0A1818'
             e.currentTarget.style.boxShadow = '0 0 50px rgba(201,168,76,0.55)'
             e.currentTarget.style.animation = 'none'
           }}

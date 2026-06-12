@@ -9,8 +9,8 @@ export default function MapSection() {
   return (
     <section
       id="ubicacion"
-      className="py-24 px-6 md:px-12 lg:px-24"
-      style={{ background: 'rgba(12, 8, 4, 0.82)' }}
+      className="px-6 md:px-12 lg:px-24"
+      style={{ background: 'rgba(10, 24, 22, 0.88)', paddingTop: '4.8rem', paddingBottom: '4.8rem' }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
@@ -116,7 +116,7 @@ export default function MapSection() {
             }}
             onMouseEnter={e => {
               e.currentTarget.style.background = GOLD
-              e.currentTarget.style.color = '#0D0A06'
+              e.currentTarget.style.color = '#0A1818'
               e.currentTarget.style.boxShadow = '0 0 30px rgba(201,168,76,0.35)'
             }}
             onMouseLeave={e => {

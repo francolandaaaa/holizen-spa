@@ -32,7 +32,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${cinzel.variable} ${cormorant.variable}`}>
-      <body className="antialiased" style={{ background: '#0D0A06', color: '#F5EEE0' }}>
+      <body className="antialiased" style={{ background: '#0A1818', color: '#F5EEE0' }}>
         {children}
       </body>
     </html>

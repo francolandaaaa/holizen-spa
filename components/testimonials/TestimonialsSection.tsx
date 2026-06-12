@@ -54,8 +54,8 @@ export default function TestimonialsSection() {
   return (
     <section
       id="resenas"
-      className="py-28 px-6 md:px-12 lg:px-24"
-      style={{ background: 'rgba(12, 8, 4, 0.82)' }}
+      className="px-6 md:px-12 lg:px-24"
+      style={{ background: 'rgba(10, 24, 22, 0.88)', paddingTop: '5.6rem', paddingBottom: '5.6rem' }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
@@ -222,7 +222,7 @@ export default function TestimonialsSection() {
             }}
             onMouseEnter={e => {
               e.currentTarget.style.background = GOLD
-              e.currentTarget.style.color = '#0D0A06'
+              e.currentTarget.style.color = '#0A1818'
               e.currentTarget.style.boxShadow = `0 0 40px rgba(201,168,76,0.40)`
             }}
             onMouseLeave={e => {

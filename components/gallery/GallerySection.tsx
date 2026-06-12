@@ -1,10 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { galleryImages, type GalleryImage } from './galleryData'
 
-const CATEGORIES = ['Todos', 'Masajes', 'Faciales', 'Rituales', 'Wellness']
 const GOLD = '#C9A84C'
 
 const PLACEHOLDERS = [
@@ -23,40 +22,16 @@ function GalleryCard({ image }: { image: GalleryImage }) {
       layout
       initial={{ opacity: 0, scale: 0.93 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.93 }}
       whileHover={{ y: -7 }}
       transition={{ duration: 0.50 }}
       className="relative overflow-hidden group cursor-pointer"
-      style={{
-        border: '1px solid rgba(201,168,76,0.10)',
-        aspectRatio: '3/4',
-      }}
+      style={{ border: '1px solid rgba(201,168,76,0.10)', aspectRatio: '3/4' }}
     >
       {missing ? (
         <div className="absolute inset-0 flex items-center justify-center" style={{ background: gradient }}>
           <div className="text-center px-6">
-            <span
-              style={{
-                fontFamily: 'var(--font-cormorant)',
-                fontSize: '2.5rem',
-                fontWeight: 300,
-                color: 'rgba(201,168,76,0.28)',
-                display: 'block',
-                marginBottom: '0.5rem',
-              }}
-            >
-              ◎
-            </span>
-            <span
-              style={{
-                fontFamily: 'var(--font-cormorant)',
-                fontSize: '1.1rem',
-                color: 'rgba(201,168,76,0.25)',
-                letterSpacing: '0.12em',
-              }}
-            >
-              {image.category}
-            </span>
+            <span style={{ fontFamily: 'var(--font-cormorant)', fontSize: '2.5rem', fontWeight: 300, color: 'rgba(201,168,76,0.28)', display: 'block', marginBottom: '0.5rem' }}>◎</span>
+            <span style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1.1rem', color: 'rgba(201,168,76,0.25)', letterSpacing: '0.12em' }}>{image.category}</span>
           </div>
         </div>
       ) : (
@@ -67,27 +42,14 @@ function GalleryCard({ image }: { image: GalleryImage }) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
       )}
-
-      {/* Hover overlay */}
       <div
         className="absolute inset-0 flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-        style={{ background: 'linear-gradient(to top, rgba(13,10,6,0.92) 0%, rgba(13,10,6,0.12) 55%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(to top, rgba(10,24,22,0.94) 0%, rgba(10,24,22,0.12) 55%, transparent 100%)' }}
       >
-        <span
-          className="text-xs tracking-widest uppercase mb-1"
-          style={{ color: GOLD, fontFamily: 'var(--font-cormorant)', letterSpacing: '0.28em' }}
-        >
+        <span className="text-xs tracking-widest uppercase mb-1" style={{ color: GOLD, fontFamily: 'var(--font-cormorant)', letterSpacing: '0.28em' }}>
           {image.category}
         </span>
-        <p
-          style={{
-            fontFamily: 'var(--font-cormorant)',
-            fontSize: '1rem',
-            color: '#F5EEE0',
-            fontWeight: 300,
-            fontStyle: 'italic',
-          }}
-        >
+        <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: '1rem', color: '#F5EEE0', fontWeight: 300, fontStyle: 'italic' }}>
           {image.alt}
         </p>
       </div>
@@ -96,27 +58,22 @@ function GalleryCard({ image }: { image: GalleryImage }) {
 }
 
 export default function GallerySection() {
-  const [active, setActive] = useState('Todos')
-
-  const filtered = active === 'Todos' ? galleryImages : galleryImages.filter(img => img.category === active)
+  const photos = galleryImages.slice(0, 6)
 
   return (
-    <section id="galeria" className="py-28 px-6 md:px-12 lg:px-24" style={{ background: 'rgba(12, 8, 4, 0.80)' }}>
+    <section
+      id="galeria"
+      className="px-6 md:px-12 lg:px-24"
+      style={{ background: 'rgba(10, 24, 22, 0.88)', paddingTop: '5.6rem', paddingBottom: '5.6rem' }}
+    >
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.90 }}
-          className="mb-16 text-center"
+          className="mb-12 text-center"
         >
-          <p
-            className="text-sm uppercase mb-4"
-            style={{ color: GOLD, letterSpacing: '0.38em', fontFamily: 'var(--font-cormorant)' }}
-          >
-            Momentos de Bienestar
-          </p>
           <h2
             className="font-light"
             style={{
@@ -130,49 +87,22 @@ export default function GallerySection() {
           >
             Galería
           </h2>
-          <div className="w-14 h-px mx-auto mt-6" style={{ background: GOLD }} />
+          <div className="w-14 h-px mx-auto mt-5" style={{ background: GOLD }} />
         </motion.div>
 
-        {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className="px-6 py-2 text-sm tracking-widest uppercase transition-all duration-350"
-              style={{
-                fontFamily: 'var(--font-cormorant)',
-                fontSize: '13px',
-                letterSpacing: '0.28em',
-                ...(active === cat
-                  ? { background: GOLD, color: '#0D0A06' }
-                  : { background: 'transparent', color: 'rgba(245,238,224,0.35)', border: '1px solid rgba(201,168,76,0.18)' }),
-              }}
-              onMouseEnter={e => { if (active !== cat) { e.currentTarget.style.color = GOLD; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.38)' } }}
-              onMouseLeave={e => { if (active !== cat) { e.currentTarget.style.color = 'rgba(245,238,224,0.35)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.18)' } }}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {photos.map((img, i) => (
+            <motion.div
+              key={img.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: i * 0.07 }}
             >
-              {cat}
-            </button>
+              <GalleryCard image={img} />
+            </motion.div>
           ))}
         </div>
-
-        {/* Grid */}
-        <motion.div layout className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <AnimatePresence mode="popLayout">
-            {filtered.map(img => <GalleryCard key={img.id} image={img} />)}
-          </AnimatePresence>
-        </motion.div>
-
-        <p
-          className="text-center text-xs mt-10 tracking-wider"
-          style={{
-            fontFamily: 'var(--font-cormorant)',
-            color: 'rgba(245,238,224,0.14)',
-            letterSpacing: '0.18em',
-          }}
-        >
-          Añade tus fotografías en /public/gallery/ y actualiza components/gallery/galleryData.ts
-        </p>
       </div>
     </section>
   )
